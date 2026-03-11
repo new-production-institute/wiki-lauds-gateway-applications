@@ -1,4 +1,7 @@
 - Home
   - [Introduction](/)
-
+  - [Pre-requisite](Pre-requisite.md)
+  - [Setup docker](setup_docker.md)
+  - [Get to know services](services.md)
+  - [Energy analytics](energy_analytics.md)
   - [Template documentation](Template_documentation.md)
