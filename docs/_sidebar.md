@@ -6,4 +6,3 @@
 - Applications
   - [Resource tracking](resource_tracking.md)  
   - [Energy analytics](energy_analytics.md)
-  - [Template documentation](Template_documentation.md)

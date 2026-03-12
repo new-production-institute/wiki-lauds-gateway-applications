@@ -24,4 +24,4 @@ Results are color-coded for easy interpretation:
 Correlation values range from **-1 to +1**, where values closer to the extremes indicate stronger relationships between parameters.
 
 You can visualise the corelation dashbord from the frontend that is running in Docker using a web server and is exposed on port 8088: http://localhost:8088/
-![corealtion_dashboard](<corealtion_dashboard.jpeg>)
+![corealtion_dashboard](<media/corealtion_dashboard.jpeg>)
