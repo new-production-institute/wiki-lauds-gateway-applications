@@ -83,6 +83,160 @@ Follow these steps to connect a Prusa 3D printer to Node-RED and enable status m
 
 After completing these steps, Node-RED will be able to authenticate with the Prusa printer and retrieve its status information.
 
+---
+
+### Job Tracking and Energy Calculation Setup in Node-RED for Prusa 3d printer
+
+This section describes how job tracking and energy consumption calculations are implemented in Node-RED.
+
+---
+
+#### 1. Job Tracking
+
+Job tracking records when a machine starts and finishes a production job and links the job to the corresponding device and time period.
+
+##### Purpose
+- Monitor machine usage during production jobs.
+- Track the **start time**, **end time**, and **machine status**.
+- Associate machine activity with a specific **job ID**.
+
+##### Implementation
+
+1. **Receive Machine Status**
+   - Machine status data is received from connected devices (e.g., Shelly devices, 3D printers, or other machines).
+   - Status changes are used to determine when a job begins or ends.
+
+2. **Detect Job Start and Stop**
+   - Logic inside a **Function Node** determines:
+     - When a machine becomes active → **Job Start**
+     - When the machine stops → **Job End**
+
+3. **Attach Job Information**
+   - The system attaches metadata such as:
+  ``` 
+   jobId
+   deviceId
+   startTime
+   endTime
+```
+
+4. **Store Job Data**
+   - Job tracking information is sent to **InfluxDB** for storage and later visualization in Grafana.
+
+---
+
+#### 2. Energy Consumption Calculation
+
+Energy consumption is calculated using energy data collected from electrical monitoring devices such as **Shelly energy meters**.
+
+##### Purpose
+- Measure energy used during machine operation.
+- Associate energy usage with specific jobs.
+- Enable energy monitoring and efficiency analysis.
+
+##### Implementation
+
+1. **Receive Energy Data**
+   - Energy data such as **power**, **voltage**, or **total energy consumption** is received from the device.
+
+2. **Process Energy Data**
+   - A **Function Node** extracts the relevant parameters:
+   ```
+   power
+   energy
+   timestamp
+   ```
+
+3. **Calculate Job Energy Usage**
+
+Energy consumed during a job is calculated using the difference between the start and end energy readings.
+
+```
+jobEnergy = endEnergy - startEnergy
+```
+
+4. **Store Energy Metrics**
+   - The calculated energy consumption is stored in **InfluxDB** for historical analysis and visualization.
+
+---
+
+#### 3. Data Flow Overview
+
+Typical workflow for job tracking and energy monitoring:
+
+1. Machine status and energy data are received by **Node-RED**.
+2. Function nodes detect **job start and stop events**.
+3. Energy data is processed and associated with the active job.
+4. Structured data is stored in **InfluxDB**.
+5. **Grafana dashboards** visualize job activity and energy consumption.
+
+---
+
+#### Result
+
+After completing this setup:
+
+- Machine jobs are automatically tracked.
+- Energy consumption is calculated per job.
+- Data can be analyzed through **Grafana dashboards** for monitoring production efficiency and energy usage.
+
+---
+
+#### Job Tracking and Energy Calculation Code
+
+
+```
+    // -------------------- INPUTS FROM MSG --------------------
+    let currentEnergy = msg.energyCounter;
+    let machineState = msg.machineState;
+    let jobId = msg.jobId;
+
+    // Define machine states
+    let activeState = ['WORKING','PRINTING','CUTTING'];
+    let idleStates = ['IDLE', 'FINISHED'];
+    // ---------------------------------------------------------
+
+    if (!flow.get('jobStarted')) flow.set('jobStarted', false);
+
+    if (activeState.includes(machineState) ){
+        if (!flow.get('jobStarted')) {
+            flow.set('jobStarted', true);
+            flow.set('initialEnergy', currentEnergy);
+            flow.set('currentJobId', jobId);
+            flow.set('jobStartTime', Date.now());
+            node.warn(`Job started. Initial energy: ${currentEnergy}`);
+        } else {
+            node.warn(`Job is running. Current energy: ${currentEnergy}`);
+        }
+    } else if (flow.get('jobStarted') && idleStates.includes(machineState)) {
+        let initialEnergy = flow.get('initialEnergy');
+        let currentJobId = flow.get('currentJobId');
+        let energyConsumed = currentEnergy - initialEnergy;
+        let jobStartTime = flow.get('jobStartTime');
+        let jobEndTime = Date.now();
+
+    let jobResult = {
+        jobId: currentJobId,
+        energyConsumed: energyConsumed,
+        jobDuration: (jobEndTime - jobStartTime) / 1000,
+    };
+
+    flow.set('jobStarted', false);
+    flow.set('initialEnergy', null);
+    flow.set('currentJobId', null);
+    flow.set('jobStartTime', null);
+
+    node.warn(`Job completed. Final energy: ${currentEnergy}, Energy consumed: ${energyConsumed}, Duration: ${jobResult.jobDuration} seconds`);
+    node.send({ payload: jobResult });
+    } else {
+        node.warn(`No active job. Current state: ${machineState}, Current energy: ${currentEnergy}`);
+    }
+
+    return null; 
+```
+
+---
+
 ### Configure InfluxDB and Integrate with Node-RED
 
 This section explains how to create the required resources in InfluxDB and configure Node-RED to store device data (e.g., Shelly energy data) in the database.
@@ -237,153 +391,3 @@ After completing these steps:
 - Grafana is connected to **InfluxDB** as a data source.
 - Dashboard panels query data directly from the database.
 - Dashboard variables allow **dynamic filtering and visualization** of device data such as machine status and energy consumption.
-
-### Job Tracking and Energy Calculation Setup in Node-RED for Prusa 3d printer
-
-This section describes how job tracking and energy consumption calculations are implemented in Node-RED.
-
----
-
-#### 1. Job Tracking
-
-Job tracking records when a machine starts and finishes a production job and links the job to the corresponding device and time period.
-
-##### Purpose
-- Monitor machine usage during production jobs.
-- Track the **start time**, **end time**, and **machine status**.
-- Associate machine activity with a specific **job ID**.
-
-##### Implementation
-
-1. **Receive Machine Status**
-   - Machine status data is received from connected devices (e.g., Shelly devices, 3D printers, or other machines).
-   - Status changes are used to determine when a job begins or ends.
-
-2. **Detect Job Start and Stop**
-   - Logic inside a **Function Node** determines:
-     - When a machine becomes active → **Job Start**
-     - When the machine stops → **Job End**
-
-3. **Attach Job Information**
-   - The system attaches metadata such as:
-  ``` 
-   jobId
-   deviceId
-   startTime
-   endTime
-```
-
-4. **Store Job Data**
-   - Job tracking information is sent to **InfluxDB** for storage and later visualization in Grafana.
-
----
-
-#### 2. Energy Consumption Calculation
-
-Energy consumption is calculated using energy data collected from electrical monitoring devices such as **Shelly energy meters**.
-
-##### Purpose
-- Measure energy used during machine operation.
-- Associate energy usage with specific jobs.
-- Enable energy monitoring and efficiency analysis.
-
-##### Implementation
-
-1. **Receive Energy Data**
-   - Energy data such as **power**, **voltage**, or **total energy consumption** is received from the device.
-
-2. **Process Energy Data**
-   - A **Function Node** extracts the relevant parameters:
-   ```
-   power
-   energy
-   timestamp
-   ```
-
-3. **Calculate Job Energy Usage**
-
-Energy consumed during a job is calculated using the difference between the start and end energy readings.
-
-```
-jobEnergy = endEnergy - startEnergy
-```
-
-4. **Store Energy Metrics**
-   - The calculated energy consumption is stored in **InfluxDB** for historical analysis and visualization.
-
----
-
-#### 3. Data Flow Overview
-
-Typical workflow for job tracking and energy monitoring:
-
-1. Machine status and energy data are received by **Node-RED**.
-2. Function nodes detect **job start and stop events**.
-3. Energy data is processed and associated with the active job.
-4. Structured data is stored in **InfluxDB**.
-5. **Grafana dashboards** visualize job activity and energy consumption.
-
----
-
-#### Result
-
-After completing this setup:
-
-- Machine jobs are automatically tracked.
-- Energy consumption is calculated per job.
-- Data can be analyzed through **Grafana dashboards** for monitoring production efficiency and energy usage.
-
----
-
-#### Job Tracking and Energy Calculation Code
-
-
-```
-    // -------------------- INPUTS FROM MSG --------------------
-    let currentEnergy = msg.energyCounter;
-    let machineState = msg.machineState;
-    let jobId = msg.jobId;
-
-    // Define machine states
-    let activeState = ['WORKING','PRINTING','CUTTING'];
-    let idleStates = ['IDLE', 'FINISHED'];
-    // ---------------------------------------------------------
-
-    if (!flow.get('jobStarted')) flow.set('jobStarted', false);
-
-    if (activeState.includes(machineState) ){
-        if (!flow.get('jobStarted')) {
-            flow.set('jobStarted', true);
-            flow.set('initialEnergy', currentEnergy);
-            flow.set('currentJobId', jobId);
-            flow.set('jobStartTime', Date.now());
-            node.warn(`Job started. Initial energy: ${currentEnergy}`);
-        } else {
-            node.warn(`Job is running. Current energy: ${currentEnergy}`);
-        }
-    } else if (flow.get('jobStarted') && idleStates.includes(machineState)) {
-        let initialEnergy = flow.get('initialEnergy');
-        let currentJobId = flow.get('currentJobId');
-        let energyConsumed = currentEnergy - initialEnergy;
-        let jobStartTime = flow.get('jobStartTime');
-        let jobEndTime = Date.now();
-
-    let jobResult = {
-        jobId: currentJobId,
-        energyConsumed: energyConsumed,
-        jobDuration: (jobEndTime - jobStartTime) / 1000,
-    };
-
-    flow.set('jobStarted', false);
-    flow.set('initialEnergy', null);
-    flow.set('currentJobId', null);
-    flow.set('jobStartTime', null);
-
-    node.warn(`Job completed. Final energy: ${currentEnergy}, Energy consumed: ${energyConsumed}, Duration: ${jobResult.jobDuration} seconds`);
-    node.send({ payload: jobResult });
-    } else {
-        node.warn(`No active job. Current state: ${machineState}, Current energy: ${currentEnergy}`);
-    }
-
-    return null; 
-``` 
