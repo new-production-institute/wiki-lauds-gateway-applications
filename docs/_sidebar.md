@@ -3,7 +3,7 @@
   - [Pre-requisite](Pre-requisite.md)
   - [Setup docker](setup_docker.md)
   - [Get to know services](services.md)
-  - [Resource tracking](resource_tracking.md)
 - Applications
+  - [Resource tracking](resource_tracking.md)  
   - [Energy analytics](energy_analytics.md)
   - [Template documentation](Template_documentation.md)
