@@ -6,3 +6,6 @@
 - Applications
   - [Resource tracking](resource_tracking.md)  
   - [Energy analytics](energy_analytics.md)
+  - [Machine maintenance indicator](machine_maintenance_indicator.md)
+  - [digital product passport](dpp.md
+  )

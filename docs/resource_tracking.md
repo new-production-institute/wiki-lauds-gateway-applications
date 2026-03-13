@@ -22,7 +22,11 @@ Follow these steps to connect your Shelly device data to the `mqtt-broker` node.
    - **Port**: MQTT port  
      Example: `1883`
 
-![MQTT server configuration](https://pad.fabcity.hamburg/uploads/1319f9b4-1c77-47c1-8ad4-e2dcf99c44fe.png)
+<!-- ![MQTT server configuration](https://pad.fabcity.hamburg/uploads/1319f9b4-1c77-47c1-8ad4-e2dcf99c44fe.png) -->
+<p align="center">
+  <img src="https://pad.fabcity.hamburg/uploads/1319f9b4-1c77-47c1-8ad4-e2dcf99c44fe.png" width="700"><br>
+  <em>MQTT server configuration</em>
+</p>
 
 #### 2. Configure the Shelly MQTT Topic
 
@@ -33,7 +37,11 @@ Follow these steps to connect your Shelly device data to the `mqtt-broker` node.
 SPPS-05/status/switch:0
 ```
 
-![Shelly topic configuration](https://pad.fabcity.hamburg/uploads/6a4a9543-3f91-439a-aa32-687cd014cd54.png)
+<!-- ![Shelly topic configuration](https://pad.fabcity.hamburg/uploads/6a4a9543-3f91-439a-aa32-687cd014cd54.png) -->
+<p align="center">
+  <img src="https://pad.fabcity.hamburg/uploads/6a4a9543-3f91-439a-aa32-687cd014cd54.png" width="700"><br>
+  <em>Shelly topic configuration</em>
+</p>
 
 #### Result
 
@@ -59,7 +67,11 @@ Follow these steps to connect a Prusa 3D printer to Node-RED and enable status m
 
 4. Use the example configuration below as a reference.
 
-![Device configuration example](https://pad.fabcity.hamburg/uploads/dbd05849-e14b-47b6-a3c0-c2d6d31cc683.png)
+<!-- ![Device configuration example](https://pad.fabcity.hamburg/uploads/dbd05849-e14b-47b6-a3c0-c2d6d31cc683.png) -->
+<p align="center">
+  <img src="https://pad.fabcity.hamburg/uploads/dbd05849-e14b-47b6-a3c0-c2d6d31cc683.png" width="700"><br>
+  <em>Device configuration example</em>
+</p>
 
 ---
 
@@ -75,7 +87,11 @@ Follow these steps to connect a Prusa 3D printer to Node-RED and enable status m
 
 4. Save the configuration.
 
-![Authentication configuration](https://pad.fabcity.hamburg/uploads/5071a270-eed9-4934-a6a7-5f05ef9598a9.png)
+<!-- ![Authentication configuration](https://pad.fabcity.hamburg/uploads/5071a270-eed9-4934-a6a7-5f05ef9598a9.png) -->
+<p align="center">
+  <img src="https://pad.fabcity.hamburg/uploads/5071a270-eed9-4934-a6a7-5f05ef9598a9.png" width="700"><br>
+  <em>Authentication configuration</em>
+</p>
 
 ---
 
@@ -97,7 +113,11 @@ This section explains how to create the required resources in InfluxDB and confi
 4. Enter the required **Bucket Name**.
 5. Click **Create**.
 
-![Create InfluxDB bucket](https://pad.fabcity.hamburg/uploads/c58dbf6f-e0d1-4bcb-a0eb-2dbb782182bd.png)
+<!-- ![Create InfluxDB bucket](https://pad.fabcity.hamburg/uploads/c58dbf6f-e0d1-4bcb-a0eb-2dbb782182bd.png) -->
+<p align="center">
+  <img src="https://pad.fabcity.hamburg/uploads/c58dbf6f-e0d1-4bcb-a0eb-2dbb782182bd.png" width="100%"><br>
+  <em>Create InfluxDB bucket</em>
+</p>
 
 ---
 
@@ -111,7 +131,11 @@ This section explains how to create the required resources in InfluxDB and confi
 
 > The token will be required later when configuring the InfluxDB connection in Node-RED.
 
-![Generate API token](https://pad.fabcity.hamburg/uploads/874a184f-74e3-426e-bf29-e7cc4ad2082d.png)
+<!-- ![Generate API token](https://pad.fabcity.hamburg/uploads/874a184f-74e3-426e-bf29-e7cc4ad2082d.png) -->
+<p align="center">
+  <img src="https://pad.fabcity.hamburg/uploads/874a184f-74e3-426e-bf29-e7cc4ad2082d.png" width="100%"><br>
+  <em>Generate API token</em>
+</p>
 
 ---
 
@@ -130,7 +154,10 @@ This section explains how to create the required resources in InfluxDB and confi
 
 This transformation ensures the data can be correctly written to the database.
 
-![Influx data structure function](https://pad.fabcity.hamburg/uploads/9835422c-d364-493a-9dc1-5613c7f34f9e.png)
+<!-- ![Influx data structure function](https://pad.fabcity.hamburg/uploads/9835422c-d364-493a-9dc1-5613c7f34f9e.png) -->
+<p align="center">
+  <img src="https://pad.fabcity.hamburg/uploads/9835422c-d364-493a-9dc1-5613c7f34f9e.png" width="700">
+</p>
 
 ---
 
@@ -154,9 +181,17 @@ This transformation ensures the data can be correctly written to the database.
 
 4. Save the configuration.
 
-![Influx node configuration](https://pad.fabcity.hamburg/uploads/c69b69f8-2140-4db0-be61-97eb28594d39.png)
+<!-- ![Influx node configuration](https://pad.fabcity.hamburg/uploads/c69b69f8-2140-4db0-be61-97eb28594d39.png) -->
+<p align="center">
+  <img src="https://pad.fabcity.hamburg/uploads/c69b69f8-2140-4db0-be61-97eb28594d39.png" width="700"><br>
+  <em>Influx node configuration</em>
+</p>
 
-![Influx server configuration](https://pad.fabcity.hamburg/uploads/fbf86ef2-9e34-4733-b049-3db40a5cf1c6.png)
+<!-- ![Influx server configuration](https://pad.fabcity.hamburg/uploads/fbf86ef2-9e34-4733-b049-3db40a5cf1c6.png) -->
+<p align="center">
+  <img src="https://pad.fabcity.hamburg/uploads/fbf86ef2-9e34-4733-b049-3db40a5cf1c6.png" width="700"><br>
+  <em>Influx server configuration</em>
+</p>
 
 ---
 
@@ -195,9 +230,17 @@ Set the following parameters:
 
 6. Click **Save & Test** to verify the connection.
 
-![Grafana data source setup](https://pad.fabcity.hamburg/uploads/22b1a5b9-1e1c-4398-a4a3-c3d740488848.png)
+<!-- ![Grafana data source setup](https://pad.fabcity.hamburg/uploads/22b1a5b9-1e1c-4398-a4a3-c3d740488848.png) -->
+<p align="center">
+  <img src="https://pad.fabcity.hamburg/uploads/22b1a5b9-1e1c-4398-a4a3-c3d740488848.png" width="100%"><br>
+  <em>Grafana data source setup</em>
+</p>
 
-![Grafana influx configuration](https://pad.fabcity.hamburg/uploads/ceadedc8-8f83-4519-aff8-e5b4366a219f.png)
+<!-- ![Grafana influx configuration](https://pad.fabcity.hamburg/uploads/ceadedc8-8f83-4519-aff8-e5b4366a219f.png) -->
+<p align="center">
+  <img src="https://pad.fabcity.hamburg/uploads/ceadedc8-8f83-4519-aff8-e5b4366a219f.png" width="100%"><br>
+  <em>Grafana influx configuration</em>
+</p>
 
 ---
 
@@ -211,7 +254,11 @@ Set the following parameters:
    - Set the **Data Source** to the InfluxDB source you created.
 5. Save the panel changes.
 
-![Grafana dashboard query setup](https://pad.fabcity.hamburg/uploads/701b8685-daad-405a-8dd3-61994a3bd292.png)
+<!-- ![Grafana dashboard query setup](https://pad.fabcity.hamburg/uploads/701b8685-daad-405a-8dd3-61994a3bd292.png) -->
+<p align="center">
+  <img src="https://pad.fabcity.hamburg/uploads/701b8685-daad-405a-8dd3-61994a3bd292.png" width="100%"><br>
+  <em>Grafana dashboard query setup</em>
+</p>
 
 ---
 
@@ -226,7 +273,11 @@ Dashboard variables allow dynamic filtering of data (e.g., machines or devices).
 5. Change the **Data Source** to the same InfluxDB data source you configured earlier.
 6. Save the changes.
 
-![Grafana dashboard variables setup](https://pad.fabcity.hamburg/uploads/21c2be13-db35-438c-a52f-c31703f6305b.png)
+<!-- ![Grafana dashboard variables setup](https://pad.fabcity.hamburg/uploads/21c2be13-db35-438c-a52f-c31703f6305b.png) -->
+<p align="center">
+  <img src="https://pad.fabcity.hamburg/uploads/21c2be13-db35-438c-a52f-c31703f6305b.png" width="100%"><br>
+  <em>Grafana dashboard variables setup</em>
+</p>
 
 ---
 
