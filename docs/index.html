@@ -8,7 +8,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+ <style>
+    #logo {
+      position: fixed;
+      top: 15px;
+      left: 320px; /* pushes it OUTSIDE the sidebar */
+      width: 120px;
+      z-index: 1000;
+    }
+
+    /* When sidebar is collapsed (mobile or toggle) */
+    body.close #logo {
+      left: 20px;
+    }
+  </style>
 </head>
+
+<img src="media/lauds-logo_lauds-orangebox-logo.svg" id="logo">
 
 <body>
   <div id="app"></div>
