@@ -59,7 +59,7 @@ R: 3D-object-"Luffy"
 
 Grafical representation with optional additional flows for recycling process and Gcode file creation process to extend (as software engineering/ digital activity)
 
-![](https://pad.fabcity.hamburg/uploads/edb55caf-f74c-4572-9c4d-ac8008980c1b.png)
+![](https://pad.fabcity.hamburg/uploads/8fcb4a66-38a6-44c8-a738-e1ab72a92d00.svg)
 
 **Use-Case DPP trace renderd as a sankey diagram** 
 
