@@ -1,38 +1,31 @@
-# INTERFACER Integration - ValueFlows Modelling
-## Value Flows API description
-- https://www.valueflo.ws/specification/spec-overview/
-- https://www.valueflo.ws/specification/json-schemas/EconomicEvent.json 
+# Digital Product Passport generation
 
-### Concepts
+To generate a Digital Product Passport (DPP) the [INTERFACER notebook](https://github.com/interfacerproject/Interfacer-notebook) provided by [Dyne.org](https://dyne.org/) is integrated in the LAUDS Gateway stack.
+
+## Basic concept with ValueFlows
+- Specification: https://www.valueflo.ws/specification/spec-overview/
+- Economic modelling: https://www.valueflo.ws/specification/json-schemas/EconomicEvent.json 
 - Environmental Accounting: https://www.valueflo.ws/concepts/ecology/#agents
-    - TODO check links to CO2 emissions
 - Production Examples: https://www.valueflo.ws/examples/ex-production/#manufacturing
-    - First 3D Printing Service Description
 - Analysis: https://www.valueflo.ws/concepts/estimates/#connecting-plans-and-scenarios
-    - CHECK for LAUDS use-case for comparison of different machining processes regarding energy and material usage, other parameters?
-    - CHECK connection with LAUDS gateway data sets from machining
-        - https://www.valueflo.ws/specification/model-text/#flows-in-motion-recipe
-            - CHECK node-red implementation possibilities
 
+## DPP fo LAUDS Manufacturing Use-Case: 3D printing service as a process
 
+**Use-Case description**
 
-## LAUDS Use-Case Modelling 3d print example
+A machine operator uses a 3D printer to produce a 3D object, consuming filament and electrical energy and citing a Gcode file.
 
-**Use-Case: Machining Service**
+**Use-Case definition**
 
-- (first draft, reference example -> https://github.com/interfacerproject/Interfacer-notebook/blob/main/gownshirt_flow.1.1.txt)
-- first draf, jupyter notebook/ IF-API implementation -> https://github.com/new-production-institute/lauds-gateway-jupyter-notebook/tree/main/IF-integration
-- translate LAUDS 3D printing machining use-case description in notebook using the gowns use-case as reference
-----
 ```
 
-A: Machine-Operator-"Adam"
-RS: Machine-3D-Printer
+A: Machine-Operator-"Adam" // agent
+RS: Machine-3D-Printer // resource specification
 RS: Filament
 RS: Electrical-Energy
 
-E: raise Machine-3D-Printer (1, Machine-Operator-"Adam")
-R: Machine-3D-Printer
+E: raise Machine-3D-Printer (1, Machine-Operator-"Adam") //event
+R: Machine-3D-Printer // resource
 
 E: raise Filament (1kg, Machine-Operator-"Adam")
 R: Filament
@@ -53,7 +46,7 @@ Operator-"Adam")
 
 E: use machining-3D-printing
 
-P: create 3D-object-"Luffy"
+P: create 3D-object-"Luffy" // process
 
 E: produce 3D-object-"Luffy" (1, Machine-
 Operator-"Adam")
@@ -61,9 +54,13 @@ Operator-"Adam")
 R: 3D-object-"Luffy"
 
 ```
-- reference notebook for jupyter notebook
-    - https://github.com/new-production-institute/lauds-gateway-jupyter-notebook/tree/main/interfacer_machining_model_3d-printer
-- Grafical representation with additional flows for recycling and Gcode file creation as software engineering activities
+
+**Use-Case visual representation**
+
+Grafical representation with optional additional flows for recycling process and Gcode file creation process to extend (as software engineering/ digital activity)
 
 ![](https://pad.fabcity.hamburg/uploads/edb55caf-f74c-4572-9c4d-ac8008980c1b.png)
+
+**Use-Case DPP trace renderd as a sankey diagram** 
+
 ![](https://pad.fabcity.hamburg/uploads/74958891-4ae6-401a-917a-c9ac9d826b08.png)
