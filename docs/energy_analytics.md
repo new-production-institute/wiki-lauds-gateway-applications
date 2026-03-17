@@ -1,4 +1,4 @@
-## Energy Analytics
+# Energy Analytics
 
 The Energy Analytics module analyzes the relationship between machine operational parameters and electrical energy measurements. By correlating machine data with electrical parameters such as **active power (apower)**, **current**, and **voltage**, users can identify how different machine activities influence energy consumption.
 
