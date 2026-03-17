@@ -63,4 +63,4 @@ Grafical representation with optional additional flows for recycling process and
 
 **Use-Case DPP trace renderd as a sankey diagram** 
 
-![](https://pad.fabcity.hamburg/uploads/74958891-4ae6-401a-917a-c9ac9d826b08.png)
+![](https://pad.fabcity.hamburg/uploads/7ef8073b-356e-442e-82e0-3fc2fde7e460.png)
