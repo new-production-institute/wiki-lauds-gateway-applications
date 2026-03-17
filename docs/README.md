@@ -2,9 +2,10 @@
 
 This repository serves as the central documentation hub for the LAUDS Gateway applications. It includes information about the general system architecture, development process, configuration, integration points, and technical guidelines to integrate and use the developed applications mainly
 
-- resource tracking: tracking of energy and machine resources
-- energy analytics: parameter correlation and machine state prediction
-- maintenance indication: anomaly detection for machine failures
+- Resource tracking: tracking of energy and machine resources
+- Energy analytics: parameter correlation and machine state prediction
+- Maintenance indication: anomaly detection for machine failures
+- Digital Product Passport: generating a Digital Product Passport for a machine job using the [INTERFACER notebook](https://github.com/interfacerproject/Interfacer-notebook)
 
 # Funding
 
