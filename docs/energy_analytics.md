@@ -4,9 +4,9 @@ The Energy Analytics module analyzes the relationship between machine operationa
 
 The results help users understand machine energy behavior and identify parameters that have the strongest impact on power usage.
 
-## Config Correlation
+## Energy Parameter Correlation
 
-The **Config Correlation** feature allows users to configure and run correlation analysis between selected machine parameters and electrical measurements.
+The **Energy Parameter Correlation** feature allows users to configure and run correlation analysis between selected machine and environmental parameters and electrical energy measurements.
 
 Users can:
 - Select a **machine**
@@ -26,7 +26,12 @@ Correlation values range from **-1 to +1**, where values closer to the extremes 
 You can visualise the corelation dashbord from the frontend that is running in Docker using a web server and is exposed on port 8088: http://localhost:8088/
 ![corealtion_dashboard](<media/corealtion_dashboard.jpeg>)
 
-## Machine State Prediction for Epilog Lasercutter
+## Machine State Prediction
+
+The **Machine State Prediction** feature enables users to determine a machine's runtime state using a connected energy sensor. This means that there is no need for a communication interface with the machine in order to obtain information about its state.
+
+The state prediction needs to be configured individually for each machine, as each machine has a different power pattern from which the state is derived. 
+The following steps describe the process using an Epilog laser at Fabelhaft St. Pauli in Hamburg.
 
 ### Data Preparation and Model Training
 
