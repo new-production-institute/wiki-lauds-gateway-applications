@@ -1,0 +1,29 @@
+/* Make navbar a proper flex container */
+.menu-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* keeps left + right items in place */
+    position: relative;
+}
+
+/* Center ONLY the title */
+.menu-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.menu-title::before {
+    content: "";
+    display: inline-block;
+    width: 120px;
+    height: 28px;
+
+    background-image: url("../../media/lauds-logo_lauds-orangebox-logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
