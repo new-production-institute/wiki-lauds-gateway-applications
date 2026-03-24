@@ -1,6 +1,6 @@
 [book]
 authors = ["Hemanth Reddy", "Michel Langhammer"]
-title = "wiki-lauds-gateway-applications"
+title = "LAUDS Gateway Wiki"
 language = "en"
 
 [output.html]
