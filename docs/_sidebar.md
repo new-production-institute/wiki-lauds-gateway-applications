@@ -1,6 +1,6 @@
 - Introduction
   - [System overview](/)
-  - [Pre-requisite](Pre-requisite.md)
+  - [System requirements](Pre-requisite.md)
   - [Setup docker](setup_docker.md)
   - [Get to know services](services.md)
 - Applications
