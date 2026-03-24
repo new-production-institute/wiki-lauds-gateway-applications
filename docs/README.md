@@ -1,6 +1,6 @@
-# Setup - LAUDS Gateway Application
+# Setup - LAUDS Gateway
 
-This repository serves as the central documentation hub for the LAUDS Gateway applications. It includes information about the general system architecture, development process, configuration, integration points, and technical guidelines to integrate and use the developed applications mainly
+This repository serves as the central documentation hub for the LAUDS Gateway, the digital infrastructure component for enhancing the phyiscal infrastructure. It includes information about the general system architecture, development process, configuration, integration points, and technical guidelines to integrate and use the developed applications mainly
 
 - Resource tracking: tracking of energy and machine resources
 - Energy analytics: parameter correlation and machine state prediction
