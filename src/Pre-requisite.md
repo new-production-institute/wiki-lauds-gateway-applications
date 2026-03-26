@@ -1,17 +1,29 @@
-## Hardware
+# System Requirements
 
+Following hardware and software requirements are necessary to use the LAUDS Gateway features. As a minimal use-case we use electrical energy sensing and machine interface integration.
+Hardware
+
+## Hardware Components
 This project utilizes the following hardware components:
 
-### 1. Raspberry Pi
-A small, affordable single-board computer that is highly versatile. It serves as the main controller for the project, running the necessary software and handling communication between connected devices.
+### Server: e.g. Raspberry Pi
 
-### 2. SD Card
-A microSD card is used as the primary storage for the Raspberry Pi. It stores the operating system, project files, and application data required for smooth operation.
+A small, affordable single-board computer that serves as the main controller for the project. It runs the necessary software and handles communication between connected devices and sensors.
 
-### 3. Shelly Power Plugs
-Smart Wi-Fi-enabled plugs that allow remote control and automation of connected appliances. They can be integrated with the Raspberry Pi for monitoring and controlling power usage.
+Required Accessories:
+- Power Supply: USB power adapter for reliable operation
+- SD Card: microSD card for storing the operating system, project files, and application data
+- Case: Protective enclosure for the Raspberry Pi
 
-## Installation
+### Sensor: e.g. Shelly Power Plugs
+
+Smart Wi-Fi-enabled plugs that enable remote control and automation of connected appliances. They integrate with the Raspberry Pi to monitor and control power consumption in real time.
+
+### Machine: e.g. Prusa 3D-Printer
+
+A 3D printer or other controllable machining equipment that connects to the LAUDS Gateway via an communication interface for monitoring and automation purposes.
+
+## Software Components - Installation
 
 ### Prepare SD Card Image of Devuan Pi Operating System
 
@@ -90,3 +102,5 @@ export NR_ADMIN_PW="laudsgateway"
 # export JUPYTER_TOKEN="<your Jupyter Notebook login token>"
 export JUPYTER_TOKEN="laudsgateway"
 ```
+
+
