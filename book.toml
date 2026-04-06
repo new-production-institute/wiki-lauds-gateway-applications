@@ -1,5 +1,6 @@
 [book]
 authors = ["Hemanth Reddy", "Michel Langhammer"]
+src = "src"
 title = "LAUDS Gateway Wiki"
 language = "en"
 
