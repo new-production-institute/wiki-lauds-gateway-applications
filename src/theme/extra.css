@@ -27,3 +27,23 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+/* Widen the page content area so wide spreadsheet tables can display all columns */
+:root {
+    --content-max-width: 1500px;
+}
+
+.main-content,
+.content,
+.chapter,
+.markdown-section {
+    max-width: 1500px !important;
+    width: 100% !important;
+}
+
+@media screen and (min-width: 1200px) {
+    .content {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}

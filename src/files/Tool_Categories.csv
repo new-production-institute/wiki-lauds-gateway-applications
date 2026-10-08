@@ -1,0 +1,9 @@
+Categories,Description,Values,Comments
+Type of LAUDS,defines for which type of LAUDS Factory the tool can be used,"university, business, community","Space size, users count, machine count, intention of operation"
+Type of LAUDS (manufacturing) operations,defines for which type of LAUDS Factory operation the tool can be used,"user management, access management, knowledge management, project management, maintenance, machine control",
+Costs – Investment,defines the initial investment costs of tool,0..x €,
+Costs – Operational,defines the operational cost (subscription) of tool,0..x €,
+Review by others,gives indicator of user feedback from other LAUDS Factories,"tbd, stars? Link to Forums?",e.g. pros & cons statements
+Lifecycle Mapping,defines for which lifecycle phase(s) the tool can be used,"tbd, high-level circular lifecycle phases possible",
+production technology / Manufacturing process,,"Forming, Subtracting, Joining, Coating, Changing Properties. Etc",(Axel)
+Intention of LAUDS,Defines the mission / focus of the LAUDS Factory,"experimentation, production, education","independently of being a business or community LAUDS, they might have an intended focus which will determinate its design"

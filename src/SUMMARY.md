@@ -3,7 +3,7 @@
 # Introduction
 - [System overview](system_overview.md)
 - [System Requirements](Pre-requisite.md)
-
+- [Generic Resources](LAUDS_Tech_Infra_Existing_Solutions.md)
 # Installation
 - [Software Installation](setup_docker.md)
 - [Get to know services](services.md)
