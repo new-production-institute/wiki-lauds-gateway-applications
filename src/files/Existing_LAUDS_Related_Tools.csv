@@ -22,7 +22,7 @@ Digital,Klipper,https://www.klipper3d.org/,3D Printer Control Firmware,FOSS,Mach
 Digital,OpenPLC,https://autonomylogic.com/,"Machine Control, Lab Control",FOSS,Machine; Lab,,Manufacturing,,,
 Digital,Truck,https://ricos.gitlab.io/truck-tutorial/v0.1/overview.html,CAD Kernel,FOSS,Design,,Design;,,cad-processing,
 Digital,Wood Waste Toolkit,https://wikifactory.com/+fictionfactory/wood-waste-toolkit,Wood Material Recovery Indicator List for CNC,FOSS,Lab,,Design; Manufacturing; Recycling,,material-specification,
-Digital,Cobot,www.cobot.me,Coworking admin software & resource management,PROP,Lab,,Production,,space-sets; space-scheduling; machine-sets; machine-scheduling; user-interaction,
+Digital,Cobot,https://www.cobot.me,Coworking admin software & resource management,PROP,Lab,,Production,,space-sets; space-scheduling; machine-sets; machine-scheduling; user-interaction,
 Digital,Holded,https://app.holded.com/,"ERP , Accounting, Resource planning",PROP,Lab,,Production,,,
 Digital,Planet CNC,https://planet-cnc.com/,CNC controlling,PROP,Machine,,Manufacturing,,,
 Digital,Freppl,https://frepple.com/,Material & Production Planning and Control,FOSS,Lab; Network,"Resource & Material Planning, Stock Management, Job Scheduling",Production,CAPP,material-specification; machine-specification; manufacturing-job-scheduling,
